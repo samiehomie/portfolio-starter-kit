@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"next dev -p 3010\" \"node server.js\"",
     "build": "next build",
     "start": "next start"
   },
@@ -12,14 +12,21 @@
     "@types/react-dom": "18.2.19",
     "@vercel/analytics": "^1.1.3",
     "@vercel/speed-insights": "^1.0.9",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
     "geist": "1.2.2",
     "next": "canary",
     "next-mdx-remote": "^4.4.1",
     "postcss": "^8.4.35",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "socket.io": "^4.8.0",
+    "socket.io-client": "^4.8.0",
     "sugar-high": "^0.6.0",
     "tailwindcss": "4.0.0-alpha.13",
     "typescript": "5.3.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
   }
 }

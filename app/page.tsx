@@ -1,11 +1,10 @@
 import { BlogPosts } from 'app/components/posts'
+import Title from './components/title'
 
 export default function Page() {
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
-      </h1>
+      <Title />
       <p className="mb-4">
         {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
         Vim's keystroke commands and tabs' flexibility for personal viewing
