@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "concurrently \"next dev -p 3010\" \"node server.js\"",
     "build": "next build",
-    "start": "next start"
+    "start": "concurrently \"next start -p 3010\" \"node server.js\""
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.0.0-alpha.13",

@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import io from 'socket.io-client'
 
-const socket = io('http://192.168.0.21:4000')
+const socket = io('http://10.42.0.1:4000')
 
 export function Navbar() {
   const [isStarted, setIsStarted] = useState(false)
@@ -19,7 +19,7 @@ export function Navbar() {
     setIsStarted(false)
     setTimeout(() => {
       socket.emit('start', { done: true })
-    }, 3000) 
+    }, 3000)
   }
   return (
     <aside className="-ml-[8px] mb-16 tracking-tight fixed top-0 bg-black w-full h-[80px]">
@@ -38,7 +38,7 @@ export function Navbar() {
             <div
               onClick={isStarted ? undefined : startMsg}
               style={{
-                color: isStarted? 'lightgreen' : ''
+                color: isStarted ? 'lightgreen' : '',
               }}
               className={`border-b transition-all flex align-middle relative py-1 px-2 m-1`}
             >
@@ -46,9 +46,8 @@ export function Navbar() {
             </div>
             <div
               style={{
-                color: !isStarted? 'lightgreen' : ''
+                color: !isStarted ? 'lightgreen' : '',
               }}
-              
               onClick={!isStarted ? undefined : stopMsg}
               className={`text-white border-b transition-all flex align-middle relative py-1 px-2 m-1 ml-[50px]`}
             >

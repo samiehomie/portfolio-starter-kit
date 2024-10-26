@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
 import Image, { StaticImageData } from 'next/image'
 
-const socket = io('http://192.168.0.21:4000')
+const socket = io('http://10.42.0.1:4000')
 
 const Case = ({ dateStr, content }: { content: string; dateStr: string }) => {
   return (
@@ -16,9 +16,7 @@ const Case = ({ dateStr, content }: { content: string; dateStr: string }) => {
       >
         {dateStr}
       </p>
-      <p className="text-white tracking-tight" >
-        {content}
-      </p>
+      <p className="text-white tracking-tight">{content}</p>
     </div>
   )
 }
@@ -45,14 +43,13 @@ export default function Section({
   const [isDone, setIsDone] = useState(true)
   const startMsg = () => {
     socket.emit('message', inputCase)
-    
   }
 
   const handleClick = () => {
     setIsClosed(true)
     setTimeout(() => {
       startMsg()
-    }, 8000) 
+    }, 8000)
   }
 
   useEffect(() => {
@@ -86,7 +83,10 @@ export default function Section({
           onClick={isClosed || isDone ? undefined : handleClick}
         />
         <div className="my-5">
-          <div className="flex flex-col space-y-1 mb-4" onClick={() => setIsClosed(false)}>
+          <div
+            className="flex flex-col space-y-1 mb-4"
+            onClick={() => setIsClosed(false)}
+          >
             <Case dateStr={dateStr} content={content} />
           </div>
         </div>
