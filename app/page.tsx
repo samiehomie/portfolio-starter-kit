@@ -1,4 +1,4 @@
-import Section from './components/title'
+import Section from './components/section'
 import img1 from '../public/one.webp'
 import img2 from '../public/two.webp'
 import img3 from '../public/three.webp'

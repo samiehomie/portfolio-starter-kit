@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
 import Image, { StaticImageData } from 'next/image'
 
@@ -42,14 +42,28 @@ export default function Section({
   imgStr,
 }: props) {
   const [isClosed, setIsClosed] = useState(false)
+  const [isDone, setIsDone] = useState(true)
   const startMsg = () => {
     socket.emit('message', inputCase)
     setIsClosed(true)
   }
 
-  //   const stopMsg = () => {
-  //     socket.emit('message', {})
-  //   }
+  const handleClick = () => {
+    setTimeout(() => {
+      startMsg()
+    }, 15000) // 15초 후에 startMsg 함수 실행
+  }
+
+  useEffect(() => {
+    socket.on('start', (data: { done: boolean }) => {
+      console.log(data)
+      setIsDone(data.done)
+    })
+
+    return () => {
+      socket.off('start')
+    }
+  }, [])
 
   return (
     <section>
@@ -64,10 +78,11 @@ export default function Section({
           width={350}
           height={175}
           style={{
-            border: isClosed ? '3px solid green' : '3px solid lightgreen',
+            border:
+              isClosed || isDone ? '3px solid green' : '3px solid lightgreen',
             objectFit: 'cover',
           }}
-          onClick={isClosed ? undefined : startMsg}
+          onClick={isClosed || isDone ? undefined : handleClick}
         />
         <div className="my-5">
           <div className="flex flex-col space-y-1 mb-4">
