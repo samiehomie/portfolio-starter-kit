@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import io from 'socket.io-client'
 
-const socket = io('http://192.168.0.43:4000')
+const socket = io('http://localhost:4000')
 
 export function Navbar() {
   const [isStarted, setIsStarted] = useState(false)
@@ -32,7 +32,7 @@ export function Navbar() {
               onClick={isStarted ? undefined : startMsg}
               className={`${
                 isStarted && 'opacity-50'
-              } border-b transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1`}
+              } text-white border-b transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1`}
             >
               start
             </div>
@@ -40,7 +40,7 @@ export function Navbar() {
               onClick={!isStarted ? undefined : stopMsg}
               className={`${
                 !isStarted && 'opacity-50'
-              } border-b transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1 ml-[50px]`}
+              } text-white border-b transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1 ml-[50px]`}
             >
               stop
             </div>
