@@ -1,37 +1,49 @@
-import Link from 'next/link'
+'use client'
+import React, { useState } from 'react'
+import io from 'socket.io-client'
 
-const navItems = {
-  '/': {
-    name: 'home',
-  },
-  '/blog': {
-    name: 'blog',
-  },
-  'https://vercel.com/templates/next.js/portfolio-starter-kit': {
-    name: 'deploy',
-  },
-}
+const socket = io('http://192.168.0.43:4000')
 
 export function Navbar() {
+  const [isStarted, setIsStarted] = useState(false)
+  const startMsg = () => {
+    socket.emit('start')
+    setIsStarted(true)
+  }
+  const stopMsg = () => {
+    socket.emit('stop')
+    setIsStarted(false)
+  }
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
+    <aside className="-ml-[8px] mb-16 tracking-tight fixed top-0 bg-black w-full h-[80px]">
       <div className="lg:sticky lg:top-20">
         <nav
           className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
           id="nav"
         >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
-                >
-                  {name}
-                </Link>
-              )
-            })}
+          <div className="flex flex-row space-x-0 pr-10 text-[20px]">
+            {/* <div className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1">
+              home
+            </div>
+            <div className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1">
+              blog
+            </div> */}
+            <div
+              onClick={isStarted ? undefined : startMsg}
+              className={`${
+                isStarted && 'opacity-50'
+              } border-b transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1`}
+            >
+              start
+            </div>
+            <div
+              onClick={!isStarted ? undefined : stopMsg}
+              className={`${
+                !isStarted && 'opacity-50'
+              } border-b transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1 ml-[50px]`}
+            >
+              stop
+            </div>
           </div>
         </nav>
       </div>

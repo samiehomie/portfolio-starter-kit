@@ -21,6 +21,14 @@ io.on('connection', (socket) => {
     io.emit('message', data)
   })
 
+  socket.on('start', () => {
+    io.emit('start')
+  })
+
+  socket.on('stop', () => {
+    io.emit('stop')
+  })
+
   socket.on('disconnect', () => {
     console.log('Client disconnected')
   })

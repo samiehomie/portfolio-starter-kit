@@ -64,7 +64,7 @@ export default function Section({
           width={350}
           height={175}
           style={{
-            border: isClosed ? '3px solid red' : '3px solid green',
+            border: isClosed ? '3px solid green' : '3px solid lightgreen',
             objectFit: 'cover',
           }}
           onClick={isClosed ? undefined : startMsg}
