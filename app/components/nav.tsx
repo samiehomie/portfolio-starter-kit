@@ -32,7 +32,7 @@ export function Navbar() {
               onClick={isStarted ? undefined : startMsg}
               className={`${
                 isStarted && 'opacity-50'
-              } border-b transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1`}
+              } text-white border-b transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1`}
             >
               start
             </div>
@@ -40,7 +40,7 @@ export function Navbar() {
               onClick={!isStarted ? undefined : stopMsg}
               className={`${
                 !isStarted && 'opacity-50'
-              } border-b transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1 ml-[50px]`}
+              } text-white border-b transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1 ml-[50px]`}
             >
               stop
             </div>
