@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 
+
+
+
 export function BlogPosts() {
   let allBlogs = getBlogPosts()
 
@@ -29,6 +32,7 @@ export function BlogPosts() {
                 {post.metadata.title}
               </p>
             </div>
+            
           </Link>
         ))}
     </div>
