@@ -7,11 +7,11 @@ const socket = io('http://192.168.0.43:4000')
 export function Navbar() {
   const [isStarted, setIsStarted] = useState(false)
   const startMsg = () => {
-    socket.emit('start')
+    socket.emit('start', { done: false })
     setIsStarted(true)
   }
   const stopMsg = () => {
-    socket.emit('stop')
+    socket.emit('start', { done: true })
     setIsStarted(false)
   }
   return (

@@ -21,12 +21,8 @@ io.on('connection', (socket) => {
     io.emit('message', data)
   })
 
-  socket.on('start', () => {
-    io.emit('start')
-  })
-
-  socket.on('stop', () => {
-    io.emit('stop')
+  socket.on('start', (data) => {
+    io.emit('start', data)
   })
 
   socket.on('disconnect', () => {
