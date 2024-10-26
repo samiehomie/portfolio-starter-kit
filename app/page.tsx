@@ -48,28 +48,34 @@ function generateString(obj: { load: number; toe: [string, number] }): string {
 const dateStr1 = 'April 8, 2024'
 const dateStr2 = 'April 9, 2024'
 const phrase1 = `I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-  Vim's keystroke commands and tabs' flexibility for personal viewing
-  preferences.`
+  Vim's keystroke commands.`
 
 const phrase2 = `The App Router can coexist with the existing pages directory for incremental 
-adoption. we're laying the foundations to build complex interfaces while shipping less JavaScript.`
+adoption.`
 
 const caseList: { load: number; toe: [string, number] }[] = [
   { load: 30, toe: ['good', 0] },
   { load: 20, toe: ['good', 0] },
   { load: 10, toe: ['good', 0] },
-  { load: 10, toe: ['good', -1] },
-  { load: 10, toe: ['good', -2] },
-  { load: 10, toe: ['good', 1] },
-  { load: 10, toe: ['good', 2] },
-  { load: 20, toe: ['good', 2] },
-  { load: 20, toe: ['good', 1] },
-  { load: 20, toe: ['good', -1] },
-  { load: 20, toe: ['good', -2] },
-  { load: 30, toe: ['good', -2] },
-  { load: 30, toe: ['good', -1] },
-  { load: 30, toe: ['good', 1] },
-  { load: 30, toe: ['good', 2] },
+
+  { load: 10, toe: ['caution', 1] },
+  { load: 10, toe: ['warning', 2] },
+  { load: 10, toe: ['caution', -1] },
+
+  { load: 10, toe: ['warning', -2] },
+  { load: 20, toe: ['warning', -2] },
+  { load: 20, toe: ['caution', -1] },
+  
+  { load: 20, toe: ['caution', 1] },
+  { load: 20, toe: ['warning', 2] },
+  { load: 30, toe: ['warning', 2] },
+
+  { load: 30, toe: ['caution', 1] },
+  { load: 30, toe: ['caution', -1] },
+  { load: 30, toe: ['warning', -2] },
+
+ 
+
 ]
 
 const imgList = [
