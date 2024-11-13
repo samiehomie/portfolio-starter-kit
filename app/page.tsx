@@ -54,25 +54,24 @@ const phrase2 = `The App Router can coexist with the existing pages directory fo
 adoption.`
 
 const caseList: { load: number; toe: [string, number] }[] = [
-  { load: 30, toe: ['good', 0] },
-  { load: 20, toe: ['good', 0] },
   { load: 10, toe: ['good', 0] },
-
-  { load: 10, toe: ['caution', 1] },
-  { load: 10, toe: ['warning', 2] },
-  { load: 10, toe: ['caution', -1] },
-
-  { load: 10, toe: ['warning', -2] },
-  { load: 20, toe: ['warning', -2] },
-  { load: 20, toe: ['caution', -1] },
-  
-  { load: 20, toe: ['caution', 1] },
-  { load: 20, toe: ['warning', 2] },
-  { load: 30, toe: ['warning', 2] },
-
+  { load: 20, toe: ['good', 0] },
+  { load: 30, toe: ['good', 0] },
   { load: 30, toe: ['caution', 1] },
+  { load: 30, toe: ['warning', 2] },
   { load: 30, toe: ['caution', -1] },
   { load: 30, toe: ['warning', -2] },
+  { load: 20, toe: ['warning', -2] },
+  { load: 20, toe: ['caution', -1] },
+  { load: 20, toe: ['caution', 1] },
+  { load: 20, toe: ['warning', 2] },
+  { load: 10, toe: ['warning', 2] },
+  { load: 10, toe: ['caution', 1] },
+  { load: 10, toe: ['caution', -1] },
+  { load: 10, toe: ['warning', -2] },
+  
+  
+  
 
  
 
