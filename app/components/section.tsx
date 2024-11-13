@@ -65,24 +65,25 @@ export default function Section({
 
   return (
     <section>
-      <div
-        style={{
-          marginBottom: '45px',
-        }}
-      >
-        <button
+      <div className="mb-[45px] flex gap-x-[30px] text-[16px]">
+        <div
           style={{
             border:
               isClosed || isDone ? '3px solid white' : '3px solid lightgreen',
-            objectFit: 'cover',
           }}
           onClick={isClosed || isDone ? undefined : handleClick}
-          className="border-3 w-full p-[10px] text-[16px]"
+          className="border-3 p-[10px]  block cursor-pointer w-[60%]"
         >
-          {`LOAD: ${
-            inputCase.load
-          } / TOE: [${inputCase.toe[0].toUpperCase()}, ${inputCase.toe[1]}]`}
-        </button>
+          {`LOAD: ${inputCase.load}`} <br />
+          {`TOE: [${inputCase.toe[0].toUpperCase()}, ${inputCase.toe[1]}]`}
+        </div>
+        <div
+          className="inline-flex flex-col w-[40%] text-[16px] justify-center 
+          items-center border p-[10px] cursor-pointer"
+          onClick={() => setIsClosed(false)}
+        >
+          RESET
+        </div>
       </div>
     </section>
   )
