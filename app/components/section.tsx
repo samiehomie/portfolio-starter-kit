@@ -49,7 +49,7 @@ export default function Section({
     setIsClosed(true)
     setTimeout(() => {
       startMsg()
-    }, 8000)
+    }, 5000)
   }
 
   useEffect(() => {
