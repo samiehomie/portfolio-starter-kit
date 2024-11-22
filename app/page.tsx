@@ -5,10 +5,10 @@ import io from 'socket.io-client'
 const socket = io('http://10.42.0.1:4000')
 
 export default function Page() {
-  const [selectedLoad, setSelectedLoad] = useState('---')
-  const [selectedToe, setSelectedToe] = useState(`["---", "---"]`)
-  const [selectedLugnut, setSelectedLugnut] = useState(`["---", "---"]`)
-  const [selectedWear, setSelectedWear] = useState(`["---", "---"]`)
+  const [selectedLoad, setSelectedLoad] = useState(`500`)
+  const [selectedToe, setSelectedToe] = useState(`["caution", -2]`)
+  const [selectedLugnut, setSelectedLugnut] = useState(`["caution", 70]`)
+  const [selectedWear, setSelectedWear] = useState(`["caution", 4]`)
   // const [isClosed, setIsClosed] = useState(false)
   const [isDone, setIsDone] = useState(true)
 
@@ -41,6 +41,10 @@ export default function Page() {
 
   return (
     <>
+      <div className="text-white text-[9px] text-center pb-[5px]">
+        load: {selectedLoad} lugnut: {selectedLugnut} toe: {selectedToe} wear{' '}
+        {selectedWear}
+      </div>
       <button
         onClick={isDone ? undefined : handleClick}
         className={`p-[10px] border w-[60%] mx-auto mb-[20px] 
