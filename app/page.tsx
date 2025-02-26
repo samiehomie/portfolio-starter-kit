@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
 
-const socket = io('http://10.42.0.1:4000')
+const socket = io('http://10.42.0.173:4000')
 
 export default function Page() {
   const [selectedLoad, setSelectedLoad] = useState(`500`)
@@ -11,6 +11,7 @@ export default function Page() {
   const [selectedWear, setSelectedWear] = useState(`["caution", 4]`)
   // const [isClosed, setIsClosed] = useState(false)
   const [isDone, setIsDone] = useState(true)
+  const [isFetching, setIsFetching] = useState(false)
 
   const startMsg = () => {
     socket.emit('message', {
@@ -22,9 +23,10 @@ export default function Page() {
   }
 
   const handleClick = () => {
-    // setIsClosed(true)
+    setIsFetching(true)
     setTimeout(() => {
       startMsg()
+      setIsFetching(false)
     }, 5000)
   }
 
@@ -41,20 +43,32 @@ export default function Page() {
 
   return (
     <>
+      {isFetching && (
+        <div
+          className="absolute inset-0 z-[9999999] bg-black/70 text-white text-xl flex flex-col 
+        justify-center items-center pointer-events-none"
+        >
+          처리중...
+        </div>
+      )}
       <div className="text-white text-[9px] text-center pb-[5px]">
         load: {selectedLoad} lugnut: {selectedLugnut} toe: {selectedToe} wear{' '}
         {selectedWear}
       </div>
       <button
+        disabled={isFetching}
         onClick={isDone ? undefined : handleClick}
         className={`p-[10px] border w-[60%] mx-auto mb-[20px] 
-        text-blue-400 ${isDone ? '' : 'border-blue-400'}`}
+         ${
+           isDone ? 'border-white text-white' : 'border-blue-400 text-blue-400'
+         }`}
       >
         Send
       </button>
       <label className="text-[20px]">
         LOAD
         <select
+          disabled={isFetching}
           name="options"
           id="options"
           value={selectedLoad}
@@ -76,6 +90,7 @@ export default function Page() {
         TOE
         <select
           name="options"
+          disabled={isFetching}
           id="options"
           value={selectedToe}
           onChange={(e) => setSelectedToe(e.target.value)}
@@ -95,6 +110,7 @@ export default function Page() {
       <label className="text-[20px]">
         WEAR
         <select
+          disabled={isFetching}
           name="options"
           id="options"
           value={selectedWear}
@@ -108,6 +124,7 @@ export default function Page() {
       <label className="text-[20px]">
         LUGNUT
         <select
+          disabled={isFetching}
           name="options"
           id="options"
           value={selectedLugnut}

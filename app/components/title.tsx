@@ -2,7 +2,7 @@
 import React from 'react'
 import io from 'socket.io-client'
 
-const socket = io('http://10.42.0.1:4000')
+const socket = io('http://10.42.0.173:4000')
 
 export default function ClientA() {
   const startMsg = () => {

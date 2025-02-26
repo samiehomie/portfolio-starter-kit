@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
 import { StaticImageData } from 'next/image'
 
-const socket = io('http://10.42.0.1:4000')
+const socket = io('http://10.42.0.173:4000')
 
 // const Case = ({ dateStr, content }: { content: string; dateStr: string }) => {
 //   return (
