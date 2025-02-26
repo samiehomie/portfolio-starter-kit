@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import io from 'socket.io-client'
 
-const socket = io('http://10.42.0.173:4000')
+const socket = io('http://54.180.43.6:4000')
 
 export function Navbar() {
   const [isStarted, setIsStarted] = useState(false)
