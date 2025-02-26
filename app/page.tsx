@@ -19,6 +19,10 @@ export default function Page() {
       toe: JSON.parse(selectedToe),
       lugnut: JSON.parse(selectedLugnut),
       wear: JSON.parse(selectedWear),
+      damage: 'good',
+      // TODO: 선택할 수 있어야 함
+
+      tirekeys: ['FL', 'FR', 'RL', 'RR'],
     })
   }
 
