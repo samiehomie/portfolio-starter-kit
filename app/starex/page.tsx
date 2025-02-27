@@ -66,6 +66,7 @@ export default function Page() {
       >
         Send
       </button>
+      <h1 className="text-center text-2xl font-bold">스타렉스</h1>
       <label className="text-[20px]">
         LOAD
         <select
