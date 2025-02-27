@@ -6,7 +6,7 @@ const socket = io('http://54.180.43.6:4000')
 
 export default function Page() {
   const [selectedLoad, setSelectedLoad] = useState(`10`)
-  const [selectedToe, setSelectedToe] = useState(`["good", 0.5]`)
+  const [selectedToe, setSelectedToe] = useState(`["good", 0]`)
   const [selectedLugnut, setSelectedLugnut] = useState(`["good", 80]`)
   const [selectedWear, setSelectedWear] = useState(`["good", 8]`)
   // const [isClosed, setIsClosed] = useState(false)
@@ -81,9 +81,6 @@ export default function Page() {
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="30">30</option>
-          <option value="40">40</option>
-          <option value="50">50</option>
-          <option value="60">60</option>
         </select>
       </label>
       <label className="text-[20px]">
@@ -96,14 +93,10 @@ export default function Page() {
           onChange={(e) => setSelectedToe(e.target.value)}
           className="mb-[20px] p-[10px] border border-gray-300 rounded w-full h-[70px] text-[20px]"
         >
-          <option value={`["good", 0.5]`}>good 0.5</option>
           <option value={`["caution", -2]`}>caution -2</option>
-          <option value={`["caution", -1.5]`}>caution -1.5</option>
           <option value={`["caution", -1]`}>caution -1</option>
-          <option value={`["good", -0.5]`}>good -0.5</option>
           <option value={`["good", 0]`}>good 0</option>
           <option value={`["caution", 1]`}>caution 1</option>
-          <option value={`["caution", 1.5]`}>caution 1.5</option>
           <option value={`["caution", 2]`}>caution 2</option>
         </select>
       </label>
