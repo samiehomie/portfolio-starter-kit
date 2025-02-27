@@ -5,7 +5,7 @@ import io from 'socket.io-client'
 const socket = io('http://54.180.43.6:4000')
 
 export default function Page() {
-  const [selectedLoad, setSelectedLoad] = useState(`8600`)
+  const [selectedLoad, setSelectedLoad] = useState(`10`)
   const [selectedToe, setSelectedToe] = useState(`["good", 0.5]`)
   const [selectedLugnut, setSelectedLugnut] = useState(`["good", 80]`)
   const [selectedWear, setSelectedWear] = useState(`["good", 8]`)
@@ -29,7 +29,7 @@ export default function Page() {
     setTimeout(() => {
       startMsg()
       setIsFetching(false)
-    }, 60000)
+    }, 7000)
   }
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export default function Page() {
       >
         Send
       </button>
-      <h1 className="text-center text-2xl font-bold">엑시언트</h1>
+      <h1 className="text-center text-2xl font-bold">미니드럼</h1>
       <label className="text-[20px]">
         LOAD
         <select
@@ -78,15 +78,12 @@ export default function Page() {
           onChange={(e) => setSelectedLoad(e.target.value)}
           className="mb-[20px] p-[10px] border border-gray-300 rounded w-full h-[70px] text-[20px]"
         >
-          <option value="8600">8600</option>
-          <option value="8650">8650</option>
-          <option value="8700">8700</option>
-          <option value="8750">8750</option>
-          <option value="8800">8800</option>
-          <option value="8850">8850</option>
-          <option value="8900">8900</option>
-          <option value="8950">8950</option>
-          <option value="9000">9000</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+          <option value="50">50</option>
+          <option value="60">60</option>
         </select>
       </label>
       <label className="text-[20px]">
