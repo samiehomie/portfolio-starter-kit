@@ -29,7 +29,7 @@ export default function Page() {
     setTimeout(() => {
       startMsg()
       setIsFetching(false)
-    }, 120000)
+    }, 60000)
   }
 
   useEffect(() => {
