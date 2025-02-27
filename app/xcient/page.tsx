@@ -23,12 +23,13 @@ export default function Page() {
     })
   }
 
+  // TODO: 시간 설정 넣기
   const handleClick = () => {
     setIsFetching(true)
     setTimeout(() => {
       startMsg()
       setIsFetching(false)
-    }, 7000)
+    }, 120000)
   }
 
   useEffect(() => {
