@@ -5,7 +5,7 @@ import io from 'socket.io-client'
 const socket = io('http://54.180.43.6:4000')
 
 export default function Page() {
-  const [selectedLoad, setSelectedLoad] = useState(`500`)
+  const [selectedLoad, setSelectedLoad] = useState(`150`)
   const [selectedToe, setSelectedToe] = useState(`["good", 0.5]`)
   const [selectedLugnut, setSelectedLugnut] = useState(`["good", 80]`)
   const [selectedWear, setSelectedWear] = useState(`["good", 8]`)
@@ -77,6 +77,7 @@ export default function Page() {
           onChange={(e) => setSelectedLoad(e.target.value)}
           className="mb-[20px] p-[10px] border border-gray-300 rounded w-full h-[70px] text-[20px]"
         >
+          <option value="150">150</option>
           <option value="500">500</option>
           <option value="550">550</option>
           <option value="600">600</option>
