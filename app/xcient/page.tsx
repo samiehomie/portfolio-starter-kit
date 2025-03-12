@@ -81,11 +81,11 @@ export default function Page() {
           <option value="8600">8600</option>
           <option value="8650">8650</option>
           <option value="8700">8700</option>
-          <option value="8750">8750</option>
-          <option value="8800">8800</option>
+          <option value="8750">2인 8750</option>
+          <option value="8800">3인 8800</option>
           <option value="8850">8850</option>
-          <option value="8900">8900</option>
-          <option value="8950">8950</option>
+          <option value="8900">4인 8900</option>
+          <option value="8950">5인 8950</option>
           <option value="9000">9000</option>
         </select>
       </label>
