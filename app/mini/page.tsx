@@ -5,10 +5,8 @@ import io from 'socket.io-client'
 const socket = io('http://54.180.43.6:4000')
 
 export default function Page() {
-  const [selectedLoad, setSelectedLoad] = useState(`10`)
+  const [selectedLoad, setSelectedLoad] = useState(`30`)
   const [selectedToe, setSelectedToe] = useState(`["good", 0]`)
-  const [selectedLugnut, setSelectedLugnut] = useState(`["good", 80]`)
-  const [selectedWear, setSelectedWear] = useState(`["good", 8]`)
   // const [isClosed, setIsClosed] = useState(false)
   const [isDone, setIsDone] = useState(true)
   const [isFetching, setIsFetching] = useState(false)
@@ -17,8 +15,8 @@ export default function Page() {
     socket.emit('message', {
       load: Number(selectedLoad),
       toe: JSON.parse(selectedToe),
-      lugnut: JSON.parse(selectedLugnut),
-      wear: JSON.parse(selectedWear),
+      lugnut: ['good', 80],
+      wear: ['good', 8],
       damage: 'good',
     })
   }
@@ -54,8 +52,7 @@ export default function Page() {
         </div>
       )}
       <div className="text-white text-[9px] text-center pb-[5px]">
-        load: {selectedLoad} lugnut: {selectedLugnut} toe: {selectedToe} wear{' '}
-        {selectedWear}
+        load: {selectedLoad} toe: {selectedToe}
       </div>
       <button
         disabled={isFetching}
@@ -93,39 +90,9 @@ export default function Page() {
           onChange={(e) => setSelectedToe(e.target.value)}
           className="mb-[20px] p-[10px] border border-gray-300 rounded w-full h-[70px] text-[20px]"
         >
-          <option value={`["caution", -2]`}>caution -2</option>
-          <option value={`["caution", -1]`}>caution -1</option>
           <option value={`["good", 0]`}>good 0</option>
           <option value={`["caution", 1]`}>caution 1</option>
           <option value={`["caution", 2]`}>caution 2</option>
-        </select>
-      </label>
-      <label className="text-[20px]">
-        WEAR
-        <select
-          disabled={isFetching}
-          name="options"
-          id="options"
-          value={selectedWear}
-          onChange={(e) => setSelectedWear(e.target.value)}
-          className="mb-[20px] p-[10px] border border-gray-300 rounded w-full h-[70px] text-[20px]"
-        >
-          <option value={`["good", 8]`}>good</option>
-          <option value={`["caution", 4]`}>caution</option>
-        </select>
-      </label>
-      <label className="text-[20px]">
-        LUGNUT
-        <select
-          disabled={isFetching}
-          name="options"
-          id="options"
-          value={selectedLugnut}
-          onChange={(e) => setSelectedLugnut(e.target.value)}
-          className="mb-[20px] p-[10px] border border-gray-300 rounded w-full h-[70px] text-[20px]"
-        >
-          <option value={`["good", 80]`}>good</option>
-          <option value={`["caution", 70]`}>caution</option>
         </select>
       </label>
     </>
