@@ -101,14 +101,14 @@ export default function Page() {
           className="mb-[20px] p-[10px] border border-gray-300 rounded w-full h-[70px] text-[20px]"
         >
           <option value={`["good", 0.5]`}>good 0.5</option>
-          <option value={`["caution", -2]`}>caution -2</option>
+          <option value={`["warning", -2]`}>warning -2</option>
           <option value={`["caution", -1.5]`}>caution -1.5</option>
           <option value={`["caution", -1]`}>caution -1</option>
           <option value={`["good", -0.5]`}>good -0.5</option>
           <option value={`["good", 0]`}>good 0</option>
           <option value={`["caution", 1]`}>caution 1</option>
           <option value={`["caution", 1.5]`}>caution 1.5</option>
-          <option value={`["caution", 2]`}>caution 2</option>
+          <option value={`["warning", 2]`}>warning 2</option>
         </select>
       </label>
       <label className="text-[20px]">
