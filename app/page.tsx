@@ -78,6 +78,7 @@ export default function Page() {
           className="mb-[20px] p-[10px] border border-gray-300 rounded w-full h-[70px] text-[20px]"
         >
           <option value="150">150</option>
+          <option value="300">300</option>
           <option value="500">500</option>
           <option value="550">550</option>
           <option value="600">600</option>
